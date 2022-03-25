@@ -1,0 +1,31 @@
+.main-nav {
+    padding-left: 8px;
+    min-height: 62px;
+  }
+  
+  .nav-logo-text {
+    color: #334AC3;
+    text-decoration: none;
+  }
+
+  .nav-logo-text h4 {
+    font-size: 24px;
+  }
+  
+  .nav-logo-text:hover {
+    color: #6b81ee;
+  }
+
+  /* MD */
+  @media (min-width: 768px) {
+    .main-nav {
+      padding-left: 40px;
+    }
+  }
+
+  /* L */
+  @media (min-width: 992px) {
+    .main-nav {
+      padding-left: 60px;
+    }
+  }
