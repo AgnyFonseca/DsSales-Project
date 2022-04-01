@@ -11,8 +11,6 @@ type ChartData = {
 const DonutChart = () => {
     const [chartData, setChartData] = useState<ChartData>({ labels: [], series: [] });
 
-    
-
     useEffect(() => {
         makeRequest
             .get<SalesByGender[]>('/sales/by-gender')
