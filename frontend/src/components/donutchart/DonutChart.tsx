@@ -31,11 +31,11 @@ const DonutChart = () => {
 
     return (
         <Chart 
-            options={{...options, labels: chartData.labels}}
+            options={{...options, labels: chartData.labels, legend: { position: 'bottom' }}}
             series={chartData.series}
             type="donut"
-            height="400"
-            width="400"
+            height="350"
+            width="350"
         />
 
     );

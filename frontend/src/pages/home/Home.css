@@ -1,5 +1,5 @@
 .home-container {
-    padding: 40px;
+    padding: 8px;
 }
 
 .home-container h1 {
@@ -22,6 +22,9 @@
 
 .home-chart {
     border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
  /* MD */
