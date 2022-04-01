@@ -36,7 +36,6 @@ const Home = () => {
                     <p>Total de vendas</p>
                 </div>
                 <div className="home-chart">
-                    <h1>Chart</h1>
                     <DonutChart />
                 </div>
             </div>
