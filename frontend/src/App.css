@@ -21,3 +21,8 @@ a:hover {
   text-decoration: none;
   color: unset;
 }
+
+.base-card {
+  background: #FFFFFF;
+  border-radius: 5px;
+}
