@@ -12,6 +12,14 @@
     font-size: 18px;
 }
 
+.filter-card {
+    height: 130px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
 .home-card {
     display: blcok;
     padding: 10px;
@@ -27,6 +35,11 @@
  @media (min-width: 768px) {
     .home-container {
         padding: 40px;
+    }
+
+    .filter-card {
+        padding-left: 40px;
+        margin-bottom: 30px;
     }
 
     .home-card {
@@ -48,9 +61,13 @@
         padding: 60px;
     }
 
+    .filter-card {
+        padding-left: 50px;
+    }
+
     .home-card {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         padding: 50px;
     }
 

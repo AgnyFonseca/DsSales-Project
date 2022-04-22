@@ -1,68 +1,66 @@
-import { AxiosRequestConfig } from 'axios';
 import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import Select from 'react-select';
-import './MovieFilter.css';
+import { Store } from '../../types/types';
+import { makeRequest } from '../../utils/requests';
+import './Filter.css';
 
-// export type GenreFilterData = {
-//     genre: Genre | null;
-// }
+export type StoreFilterData = {
+    name: Store | null;
+}
 
-// type Props = {
-//     onSubmitFilter: (data: GenreFilterData) => void;
-// };
+type Props = {
+    onSubmitFilter: (data: StoreFilterData) => void;
+};
 
-const Filter = () => {
-    // const [selectGenres, setSelectGenres] = useState<Genre[]>([]);
+const Filter = ({ onSubmitFilter }: Props) => {
+    const [selectStore, setSelectStore] = useState<Store[]>([]);
 
-    // const { handleSubmit, setValue, getValues, control } =
-    //     useForm<GenreFilterData>();
+    const { handleSubmit, setValue, getValues, control } =
+        useForm<StoreFilterData>();
 
-    // useEffect(() => {
-    //     const params: AxiosRequestConfig = {
-    //         url: '/genres',
-    //         withCredentials: true,
-    //     };
+    useEffect(() => {
+        makeRequest
+            .get<Store[]>('/stores')
+            .then((response) => {
+                setSelectStore(response.data);
+            });
+    }, []);
 
-    //     requestBackend(params).then((response) => {
-    //         setSelectGenres(response.data);
-    //     });
-    // }, []);
+    const onSubmit = (formData: StoreFilterData) => {
+        onSubmitFilter(formData);
+    };
 
-    // const onSubmit = (formData: GenreFilterData) => {
-    //     onSubmitFilter(formData);
-    // };
+    const handleChangeGenre = (value: Store) => {
+        setValue('name', value);
+        const obj: StoreFilterData = {
+            name: getValues('name'),
+        };
 
-    // const handleChangeGenre = (value: Genre) => {
-    //     setValue('genre', value);
-    //     const obj: GenreFilterData = {
-    //         genre: getValues('genre'),
-    //     };
-
-    //     onSubmitFilter(obj);
-    // };
+        onSubmitFilter(obj);
+    };
 
 
     return (
-        <div className="movie-list-select-container base-card">
-            {/* <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="store-list-select-container base-card">
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <Controller
-                    name="genre"
+                    name="name"
                     control={control}
                     render={({ field }) => (
                         <Select
                             {...field}
-                            options={selectGenres}
-                            classNamePrefix="movie-list-select"
+                            options={selectStore}
+                            classNamePrefix="store-list-select"
                             isClearable
-                            placeholder="Gênero"
-                            onChange={(value) => handleChangeGenre(value as Genre)}
-                            getOptionLabel={(genre: Genre) => genre.name}
-                            getOptionValue={(genre: Genre) => String(genre.id)}
+                            placeholder="Store"
+                            onChange={(value) => handleChangeGenre(value as Store)}
+                            getOptionLabel={(store: Store) => store.name}
+                            getOptionValue={(store: Store) => String(store.id)}
                         />
                     )}
                 />
-            </form> */}
+            </form>
         </div>
     );
 };

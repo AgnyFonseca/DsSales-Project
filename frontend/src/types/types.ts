@@ -12,3 +12,8 @@ export type SalesSummary = {
     avg: number;
     count: number;
   };
+
+  export type Store = {
+      id: number;
+      name: string;
+  }
