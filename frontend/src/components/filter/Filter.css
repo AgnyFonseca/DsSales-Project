@@ -17,8 +17,6 @@
   .store-list-select__placeholder {
     font-size: 16px !important;
     color: #8D8D8D !important;
-    /* margin-bottom: 10px !important;
-    margin-left: 5px !important; */
   }
   
   .store-list-select__indicator {
@@ -40,8 +38,4 @@
     .store-list-select-container {
       justify-content: flex-start;
     }
-  
-    /* .store-list-select__control {
-      margin-left: 20px;
-    } */
   }

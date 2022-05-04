@@ -1,28 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Chart from 'react-apexcharts';
-import { SalesByGender } from '../../types/types';
-import { makeRequest } from '../../utils/requests';
 
-type ChartData = {
+type ChartProps = {
     labels: string[];
     series: number[];
 }
 
-const DonutChart = () => {
-    const [chartData, setChartData] = useState<ChartData>({ labels: [], series: [] });
-
-    useEffect(() => {
-        makeRequest
-            .get<SalesByGender[]>('/sales/by-gender')
-            .then((response) => {
-                const data = response.data as SalesByGender[];
-                const myLabels = data.map(x => x.gender);
-                const mySeries = data.map(x => x.sum);
-
-                setChartData({ labels: myLabels, series: mySeries });
-            })
-    }, []);
-
+const DonutChart = (props: ChartProps) => {
     const options = {
         legend: {
             show: true,
@@ -31,8 +15,8 @@ const DonutChart = () => {
 
     return (
         <Chart 
-            options={{...options, labels: chartData.labels, legend: { position: 'bottom' }}}
-            series={chartData.series}
+            options={{...options, labels: props.labels, legend: { position: 'bottom' }}}
+            series={props.series}
             type="donut"
             height="350"
             width="350"
