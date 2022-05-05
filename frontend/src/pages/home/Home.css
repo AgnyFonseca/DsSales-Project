@@ -20,17 +20,6 @@
     align-items: center;
 }
 
-.home-card {
-    display: blcok;
-    padding: 10px;
-}
-
-.home-chart {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
  /* MD */
  @media (min-width: 768px) {
     .home-container {
@@ -40,10 +29,6 @@
     .filter-card {
         padding-left: 40px;
         margin-bottom: 30px;
-    }
-
-    .home-card {
-        padding: 40px;
     }
 
     .home-container h1 {
@@ -63,18 +48,6 @@
 
     .filter-card {
         padding-left: 50px;
-    }
-
-    .home-card {
-        display: flex;
-        justify-content: space-between;
-        padding: 50px;
-    }
-
-    .home-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
     }
   }
 

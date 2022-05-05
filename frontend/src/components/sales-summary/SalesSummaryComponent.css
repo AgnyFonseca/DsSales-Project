@@ -1,0 +1,33 @@
+.sales-summary-card {
+    display: blcok;
+    padding: 10px;
+}
+
+.sales-summary-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ /* MD */
+ @media (min-width: 768px) {
+    .sales-summary-card {
+        padding: 40px;
+    }
+  }
+
+  /* L */
+  @media (min-width: 992px) {
+    .sales-summary-card {
+        display: flex;
+        justify-content: space-between;
+        padding: 50px;
+    }
+
+    .sales-summary-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+  }
+
